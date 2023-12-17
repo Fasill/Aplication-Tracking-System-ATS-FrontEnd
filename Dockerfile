@@ -8,7 +8,7 @@ WORKDIR /usr/src
 COPY package*.json ./
 
 # Install project dependencies
-RUN npm ci --only=production
+RUN npm install
 
 # Copy the rest of the application code to the container
 COPY . .
@@ -16,18 +16,20 @@ COPY . .
 # Build the application (if needed, adjust this step based on your project)
 RUN npm run build
 
-# Runtime Stage
+# Install 'gzipper' to gzip the build output
+RUN npm install -g gzipper
+
+# Gzip the build output
+RUN gzipper --gzip --input ./build --output ./build-gzip
+
+# Create a new image for serving the optimized build
 FROM node:16.15.1-alpine
 
-# Set the working directory for the runtime stage
-WORKDIR /usr/app
+# Set the working directory inside the container
+WORKDIR /usr/src
 
-# Copy only the necessary files from the build stage
-COPY --from=build /usr/src/build ./build
-COPY package*.json ./
-
-# Install only production dependencies
-RUN npm ci --only=production
+# Copy the optimized build from the build stage
+COPY --from=build /usr/src/build-gzip /usr/src/build
 
 # Expose the port your application will listen on
 EXPOSE 3000
