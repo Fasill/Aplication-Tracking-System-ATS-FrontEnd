@@ -16,11 +16,8 @@ COPY . .
 # Build the application (if needed, adjust this step based on your project)
 RUN npm run build
 
-# Install 'gzipper' to gzip the build output
-RUN npm install -g gzipper
-
 # Gzip the build output
-RUN gzipper --gzip --input ./build --output ./build-gzip
+RUN find ./build -type f -regex '.*\.\(js\|css\|html\|json\)' -exec gzip -n {} +
 
 # Create a new image for serving the optimized build
 FROM node:16.15.1-alpine
@@ -29,7 +26,7 @@ FROM node:16.15.1-alpine
 WORKDIR /usr/src
 
 # Copy the optimized build from the build stage
-COPY --from=build /usr/src/build-gzip /usr/src/build
+COPY --from=build /usr/src/build /usr/src/build
 
 # Expose the port your application will listen on
 EXPOSE 3000
