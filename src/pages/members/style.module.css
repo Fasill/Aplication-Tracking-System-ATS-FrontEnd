@@ -1,0 +1,9 @@
+.blured{
+    /* backdrop-filter: blur(16px);
+     */
+     background-color: aqua;
+     filter: blur(16px);
+}
+.bg_blur {
+    backdrop-filter: blur(5px); /* Adjust the blur value as needed */
+  }
