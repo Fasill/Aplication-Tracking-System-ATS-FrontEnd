@@ -16,20 +16,20 @@ COPY . .
 # Build the application (if needed, adjust this step based on your project)
 RUN npm run build
 
-# Gzip the build output
-RUN find ./build -type f -regex '.*\.\(js\|css\|html\|json\)' -exec gzip -n {} +
-
-# Create a new image for serving the optimized build
-FROM node:16.15.1-alpine
+# Create a new stage for the final image
+FROM node:16.15.1
 
 # Set the working directory inside the container
 WORKDIR /usr/src
 
-# Copy the optimized build from the build stage
-COPY --from=build /usr/src/build /usr/src/build
+# Copy the built application from the build stage
+COPY --from=build /usr/src/build ./build
+
+# Install compression middleware
+RUN npm install compression
 
 # Expose the port your application will listen on
 EXPOSE 3000
 
-# Define the command to start your application
-CMD ["npm", "start"]
+# Define the command to start your application with compression
+CMD ["npm", "run", "start-compressed"]
