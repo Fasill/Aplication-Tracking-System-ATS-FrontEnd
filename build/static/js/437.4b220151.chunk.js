@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfront=self.webpackChunkfront||[]).push([[437],{7471:function(e,t,n){n.r(t);n(2791);var s=n(184);t.default=function(){return(0,s.jsxs)("div",{className:"h-screen flex flex-col items-center justify-center bg-gradient-to-br from-indigo-800 to-purple-600",children:[(0,s.jsx)("div",{className:"text-white text-6xl font-bold mb-4 animate-bounce",children:"404"}),(0,s.jsx)("div",{className:"text-white text-2xl",children:"Page Not Found"})]})}}}]);
+//# sourceMappingURL=437.4b220151.chunk.js.map

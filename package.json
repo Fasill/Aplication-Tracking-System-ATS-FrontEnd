@@ -28,8 +28,7 @@
     "eject": "react-scripts eject",
     "deploy-gcp": "gsutil cp -r build/* gs://ats-project-298816.appspot.com",
     "preview": "vite preview",
-    "start": "serve -s build",
-  "start-compressed": "compression && serve -s build"
+    "start": "react-scripts -s build"
   },
   "eslintConfig": {
     "extends": [
