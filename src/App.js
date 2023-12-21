@@ -4,28 +4,21 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import * as Pages from './pages/index.js';
 
-
 function App() {
   return (
     <div className="App">
       <Router>
         <Routes>
-          {/* Authentication Routes */}
-          <Route path="/login" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyLogin /></React.Suspense>} />
-          <Route path="/login/supplier" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyLoginAsSupplier /></React.Suspense>} />
-          <Route path="/login/channelPartner" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyLoginAsChannelPartner /></React.Suspense>} />
-          <Route path="/login/employer" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyLoginAsEmployer /></React.Suspense>} />
-          <Route path="/login/SignUpNew" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazySignUpNew /></React.Suspense>} />
 
           {/* Admin Routes */}
           <Route path="/" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyAdminDashboard /></React.Suspense>} />
-          <Route path="/signup/supplier" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazySignupAsSupplier /></React.Suspense>} />
-          <Route path="/signup/verify" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyOtpVerifier /></React.Suspense>} />
           
           {/* Other Routes */}
           <Route path="/dashboard" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyDashboard /></React.Suspense>} />
           <Route path="/fast" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyYourComponent /></React.Suspense>} />
           <Route path="/verifyClient" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyVerifyClient /></React.Suspense>} />
+          <Route path="/verifySupplier" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyVerifySupplier /></React.Suspense>} />
+         
           
           {/* Home Layout Routes */}
           <Route path="" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyHomeLayout /></React.Suspense>}>
@@ -45,6 +38,13 @@ function App() {
             <Route path="/client/Candidates" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyCandidatesForClient /></React.Suspense>} />
             <Route path="/client/CandidateProfileClient/*" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyCandidateProfileClient /></React.Suspense>} />
           </Route>
+          <Route path="" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyTestLogin /></React.Suspense>}>
+            <Route path="/login" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyTest /></React.Suspense>} />
+            <Route path="/register/verify" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazyOtpVerifier /></React.Suspense>} />
+            <Route path="/register" element={<React.Suspense fallback={<div>Loading...</div>}><Pages.LazySignupAsSupplier /></React.Suspense>} />
+          </Route>
+
+
 
         </Routes>
       </Router>

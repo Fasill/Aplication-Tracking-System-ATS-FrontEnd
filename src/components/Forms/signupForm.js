@@ -21,6 +21,7 @@ const SignUpForm = (props) => {
     city: '',
     state: '',
     country: '',
+    ownerName:'',
   });
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -29,11 +30,12 @@ const SignUpForm = (props) => {
   const schema = yup.object().shape({
     email: yup.string().email('Invalid email format').required('Email is required'),
     name: yup.string(),
+    ownerName: yup.string(),
+
     address: yup.string(),
     city: yup.string(),
     state: yup.string(),
     country: yup.string(),
-    password: yup.string().required('Password is required'),
   });
   
 
@@ -80,7 +82,7 @@ const SignUpForm = (props) => {
               console.log(otpResponse.data.message);
               const otpverifyToken = otpResponse.data.otpverifyToken;
               localStorage.setItem("otpverifyToken", otpverifyToken);
-              navigate('/signup/verify');
+              navigate('/register/verify');
               setFormData({
                 email: '',
                 phoneNumber: '',
@@ -89,6 +91,7 @@ const SignUpForm = (props) => {
                 city: '',
                 state: '',
                 country: '',
+                ownerName:'',
               });
             })
             .catch((otpError) => {
@@ -113,56 +116,22 @@ const SignUpForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className=" grid gap-5 w-[349px] mt-[15rem]">
+    <form onSubmit={handleSubmit(onSubmit)} className=" grid gap-5 ">
       <h1 className="m-auto text-black text-3xl font-bold">{props.tittle}</h1>
 
-      <div className="text-black grid justify-items-start">
-        <label>Email ID<span className="text-red-600">{errors.email?.message}</span></label>
-        <input
-          type="text"
-          {...register("email")}
-          value={formData.email}
-          onChange={handleChange}
-          className="p-3 border h-11 max-w-96 w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
-        />
-      </div>
-
-      <div className="text-black grid justify-items-start">
-        <label>Phone Number<span className="text-red-600">{errors.phoneNumber?.message}</span></label>
-        <PhoneInput
-          inputStyle={{
-            height: '45px',
-            width: '100%',
-            border: '1px solid #ccc',
-            borderRadius: '5px',
-          }}
-          value={formData.phoneNumber}
-          onChange={(value) => setFormData({ ...formData, phoneNumber: value })}
-        />
-      </div>
 
 
+        
+    <div className="flex max-w-96 w-full gap-3 max-md:grid justify-between">
       <div className="text-black grid justify-items-start">
-        <label>Password<span className="text-red-600">{errors.name?.message}</span></label>
-        <input
-          type="password"
-          name="password"
-          {...register("password")}
-          value={formData.password}
-          onChange={handleChange}
-          className="p-3 border h-11 max-w-96 w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
-        />
-      </div>
-
-      <div className="text-black grid justify-items-start">
-        <label>Name<span className="text-red-600">{errors.name?.message}</span></label>
+        <label>Agency Name<span className="text-red-600">{errors.name?.message}</span></label>
         <input
           type="text"
           name="name"
           {...register("name")}
           value={formData.name}
           onChange={handleChange}
-          className="p-3 border h-11 max-w-96 w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
+          className="p-3 border h-11  w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
         />
       </div>
 
@@ -174,9 +143,13 @@ const SignUpForm = (props) => {
           {...register("address")}
           value={formData.address}
           onChange={handleChange}
-          className="p-3 border h-11 max-w-96 w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
-        />
+          className="p-3 border h-11  w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
+       
+       />
       </div>
+      </div>
+
+    <div className="flex max-w-96 w-full gap-3 max-md:grid justify-between">
 
       <div className="text-black grid justify-items-start">
         <label>City<span className="text-red-600">{errors.city?.message}</span></label>
@@ -186,8 +159,9 @@ const SignUpForm = (props) => {
           {...register("city")}
           value={formData.city}
           onChange={handleChange}
-          className="p-3 border h-11 max-w-96 w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
-        />
+          className="p-3 border h-11  w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
+       
+       />
       </div>
 
       <div className="text-black grid justify-items-start">
@@ -198,7 +172,26 @@ const SignUpForm = (props) => {
           {...register("state")}
           value={formData.state}
           onChange={handleChange}
-          className="p-3 border h-11 max-w-96 w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
+          className="p-3 border h-11  w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
+       
+       />
+      </div>
+      </div>
+
+    <div className="flex max-w-96 w-full gap-3 max-md:grid justify-between">
+
+      <div className="text-black grid justify-items-start">
+        <label>Phone Number<span className="text-red-600">{errors.phoneNumber?.message}</span></label>
+        <PhoneInput
+          inputStyle={{
+            height: '45px',
+            width: '100%',
+            border: '1px solid #ccc',
+            borderRadius: '5px',
+          }}
+
+          value={formData.phoneNumber}
+          onChange={(value) => setFormData({ ...formData, phoneNumber: value })}
         />
       </div>
 
@@ -210,9 +203,37 @@ const SignUpForm = (props) => {
           {...register("country")}
           value={formData.country}
           onChange={handleChange}
-          className="p-3 border h-11 max-w-96 w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
-        />
+          className="p-3 border h-11  w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
+       
+       />
+          </div>
+
       </div>
+    <div className="flex max-w-96 w-full gap-3 max-md:grid justify-between">
+
+          <div className="text-black grid justify-items-start">
+            <label>Email ID<span className="text-red-600">{errors.email?.message}</span></label>
+            <input
+              type="text"
+              {...register("email")}
+              value={formData.email}
+              onChange={handleChange}
+          className="p-3 border h-11  w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
+           
+           />
+          </div>
+          <div className="text-black grid justify-items-start">
+            <label>Owner Name<span className="text-red-600">{errors.ownerName?.message}</span></label>
+            <input
+              type="text"
+              {...register("ownerName")}
+              value={formData.ownerName}
+              onChange={handleChange}
+          className="p-3 border h-11  w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
+           
+           />
+        </div>
+          </div>
 
       <button
         className={`rounded-md h-11 ${isEmpty ? 'border pointer-events-none border-gray-400 text-blue-400' : 'bg-blue-500 text-white hover:bg-blue-400'} rounded-md h-11 font-bold text-xl`}

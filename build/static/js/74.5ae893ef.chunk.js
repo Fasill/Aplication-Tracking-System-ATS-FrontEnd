@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkfront=self.webpackChunkfront||[]).push([[74],{2074:function(e,n,r){r.r(n);r(2791);var s=r(7689),c=r(184);n.default=function(e){e.children;return(0,c.jsx)("div",{children:(0,c.jsx)("div",{className:"bg-[rgb(245,249,255)] h-screen w-screen flex items-center justify-center",children:(0,c.jsx)(s.j3,{})})})}}}]);
+//# sourceMappingURL=74.5ae893ef.chunk.js.map

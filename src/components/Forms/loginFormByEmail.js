@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -8,34 +7,17 @@ import { useEffect } from 'react';
 import {backEndLink} from '../../utils/Links.js';
 
 const LoginFormByEmail = (props) => {
-  // State variables
   const [isSubmitting, setIsSubmitting] = useState(false); // For form submission state
   const [isEmpty, setIsEmpty] = useState(true); // To track if the form is empty
-  const navigate = useNavigate(); // React Router navigation
-  const [isLoading,setIsLoading] = useState(false)
   const [formData, setFormData] = useState({ email: '', password: '' }); // Form data
   const [errorMessage , setErrorMessage] = useState(''); // Error message from the server
   const [errorMessage2 , setErrorMessage2] = useState(''); // Error message from the server
-
   const [isEmailSent,setIsEmailSent] = useState(false);
 
-  function navigateWithPassword() {
-    setIsLoading(true)
-    const currentUrl = window.location.href;
-    const separator = currentUrl.includes('?') ? '&' : '?';
-    const newPasswordParameter = '&password=true';
-    const newUrl = `${currentUrl}${separator}${newPasswordParameter}`;
-    window.location.href = newUrl;
-    setIsLoading(false)
-
-  }
-  
-  // Form validation schema using Yup
   const schema = yup.object().shape({
     email: yup.string().email('Invalid email format').required('Email is required'),
   });
 
-  // Form hook setup
   const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
   });
@@ -94,15 +76,16 @@ const LoginFormByEmail = (props) => {
       <h1 className="m-auto text-black text-3xl font-bold">{props.tittle}</h1>
 
       {/* Email Input */}
-      <div className="text-black max-w-[349px] w-full grid justify-items-start">
+      <div className="text-black  grid justify-items-start">
         <label>Enter Email<span className="text-red-600">: {errorMessage2} {errors.email?.message} {errorMessage === "User not found." ||errorMessage ===  "User not found2."? "User not found." : ""}</span><span className='text-green-600'>{isEmailSent?"Please check your email for the login verification link.":""}</span></label>
         <input
           type="text"
           {...register("email")}
           value={formData.email}
           onChange={handleChange}
-          className="p-3 border h-11 max-w-[349px] w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
-        />
+          className="p-3 border h-11 max-w-96 w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent"
+     
+     />
       </div>
 
       {/* Password Input */}
@@ -111,7 +94,7 @@ const LoginFormByEmail = (props) => {
       {/* Forgot Password Link */}
       <p className="font-bold justify-self-start text-[14px] self-end">
         
-        Click here to continue with a password: <a  onClick={()=>navigateWithPassword()} className="text-blue-500 hover:text-blue-400 justify-self-end cursor-pointer">Continue</a>
+        Click here to continue with a password: <a  onClick={()=>props.setInputStatus("d")} className="text-blue-500 hover:text-blue-400 justify-self-end cursor-pointer">Continue</a>
       </p>
 
       {/* Login Button */}
@@ -124,11 +107,7 @@ const LoginFormByEmail = (props) => {
       </button>
 
       {/* Create Account Links */}
-      <div className="grid gap-1 font-bold">
-        <p className="m-0 text-left text-[14px] text-gray-600">Login as Channel partner<a className="text-blue-500 hover:text-blue-400" href="/login/channelPartner"> Login</a></p>
-        <p className="m-0 text-left text-[14px] text-gray-600">Login as Employer<a className="text-blue-500 hover:text-blue-400" href="/login/employer"> Login</a></p>
-        <p className="m-0 text-left text-[14px] text-gray-600">Login as Supplier <a className="text-blue-500 hover:text-blue-400" href="/login/supplier"> Login</a></p>
-      </div>
+      
     </form>
   );
 }

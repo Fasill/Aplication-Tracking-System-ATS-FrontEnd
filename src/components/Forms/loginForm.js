@@ -104,11 +104,11 @@ const LoginForm = (props) => {
       </div>
 
       {/* Forgot Password Link */}
-      <p className="font-bold justify-self-end text-[14px]">
-        <a href="/" className="text-blue-500 hover:text-blue-400 justify-self-end">
-          Forgot your password?
-        </a>
+      <p className="font-bold justify-self-start text-[14px] self-end">
+        
+        Click here to continue with a Email: <a  onClick={()=>props.setInputStatus("d")} className="text-blue-500 hover:text-blue-400 justify-self-end cursor-pointer">Continue</a>
       </p>
+
 
       {/* Login Button */}
       <button
@@ -118,14 +118,7 @@ const LoginForm = (props) => {
       >
         {isSubmitting ? <span className="loading loading-spinner loading-md "></span> : "Login"}
       </button>
-
       {/* Create Account Links */}
-      <div className="grid gap-1 font-bold">
-        <p className="m-0 text-left text-[14px] text-gray-600">Login as Employer<a className="text-blue-500 hover:text-blue-400" href="/login/employer"> Login</a></p>
-        <p className="m-0 text-left text-[14px] text-gray-600">Login as Supplier <a className="text-blue-500 hover:text-blue-400" href="/login/supplier"> Login</a></p>
-        <p className="m-0 text-left text-[14px] text-gray-600">Login as Channel partner<a className="text-blue-500 hover:text-blue-400" href="/login/channelPartner"> Login</a></p>
-      
-      </div>
     </form>
   );
 }

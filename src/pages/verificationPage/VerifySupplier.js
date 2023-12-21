@@ -49,3 +49,4 @@ export const VerifySupplier = () => {
         </div>
     );
 }
+export default VerifySupplier;

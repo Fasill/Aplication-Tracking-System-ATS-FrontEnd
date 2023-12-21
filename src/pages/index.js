@@ -1,10 +1,5 @@
 import React from 'react';
 
-export const LazyLogin = React.lazy(() => import('./LoginAndSignUp/login.js'));
-export const LazyLoginAsChannelPartner = React.lazy(() => import('./LoginAndSignUp/LoginAsAdmin.js'));
-export const LazyLoginAsSupplier = React.lazy(() => import('./LoginAndSignUp/LoginAsSupplier.js'));
-export const LazyLoginAsEmployer = React.lazy(() => import('./LoginAndSignUp/LoginAsOwner.js'));
-export const LazySignUpNew = React.lazy(() => import('./LoginAndSignUp/SignUpNew.js'));
 export const LazyNotFound = React.lazy(() => import('./notFound/notFound.js'));
 export const LazyAdminDashboard = React.lazy(() => import('./home/Home.js'));
 export const LazySignupAsSupplier = React.lazy(() => import('./LoginAndSignUp/SignupAsSupplier.js'));
@@ -28,3 +23,6 @@ export const LazyVerifySupplier = React.lazy(() => import('./verificationPage/Ve
 export const LazyCandidatesForClient = React.lazy(() => import('./Candidates/CandidatesForClient.js'));
 export const LazyVerifyClient = React.lazy(() => import('./verificationPage/VerifyClient.js'));
 export const LazyCandidateLayout = React.lazy(() => import('./layout/CandidateLayout.js'));
+export const LazyTest = React.lazy(() => import('./LoginAndSignUp/Login.jsx'));
+export const LazyTestLogin = React.lazy(() => import('./layout/AuthLayout.jsx'));
+

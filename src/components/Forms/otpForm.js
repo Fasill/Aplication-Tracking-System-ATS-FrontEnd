@@ -110,10 +110,10 @@ const sendOtp = ()=>{
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="grid h-full max-w-[20rem]  w-full max-h-[18rem] ">
+    <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4 h-full max-w-[20rem]  w-full max-h-[18rem] ">
       {/* Form Header */}
       <h1 className="m-auto text-black text-3xl font-bold">{props.tittle}</h1>
-      <div className='flex m-0  items-start justify-center p-0'><img className='self-start p-1' alt='email' src={emailIcon}/><p className='p-0 text-black'>We emailed a code to [email] please enter the code to sign in.</p></div>
+      <div className='flex m-0  items-start justify-center p-0'><img className='self-start p-1' alt='email' src={emailIcon}/><p className='p-0 text-black'>We sent you a code to your email please enter the code to sign in.</p></div>
      
       {/* <p className='text-black'>Check Your Email and Enter the 6-Digit Code Below</p> */}
       {/* Code Input */}
@@ -128,7 +128,6 @@ const sendOtp = ()=>{
           className="p-3 border h-11 max-w-[10rem] w-full border-gray-400 rounded-md focus:outline-none focus:border-blue-500 bg-transparent m-0"
         />
       </div>
-
 
       {/* Forgot Password Link */}
       <p className="font-bold text-[14px] self-end justify-self-start m-0">

@@ -13,7 +13,7 @@ const AdminDashboard = () => {
                 <div className='flex gap-5'>
                     <button
                         className='text-[rgb(253,126,39)] font-bold border border-[rgb(253,126,39)] rounded p-1'
-                        onClick={() => navigate('/login/supplier')}
+                        onClick={() => navigate('/login')}
                     >
                         Login
                     </button>
@@ -22,7 +22,7 @@ const AdminDashboard = () => {
                         className='text-white bg-[rgb(253,126,39)] rounded p-1 font-bold'
                         onClick={() => navigate('/signup/supplier')}
                     >
-                        SignUp
+                        Register
                     </button>
                 </div>
             </div>
