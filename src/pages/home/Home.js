@@ -20,7 +20,7 @@ const AdminDashboard = () => {
 
                     <button
                         className='text-white bg-[rgb(253,126,39)] rounded p-1 font-bold'
-                        onClick={() => navigate('/signup/supplier')}
+                        onClick={() => navigate('/register')}
                     >
                         Register
                     </button>
