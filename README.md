@@ -1,70 +1,32 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Application Tracking System (ATS) Frontend
 
-## Available Scripts
+Welcome to the Application Tracking System (ATS) Frontend! This React application, styled with Tailwind CSS, provides a user-friendly interface for managing job applications and related tasks.
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+The ATS Frontend is built using React, a popular JavaScript library for building user interfaces, and styled with Tailwind CSS, a utility-first CSS framework. It offers a seamless experience for users to navigate through job listings, submit applications, manage their profiles, and more.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **User-friendly Interface**: The frontend is designed with a clean and intuitive interface, making it easy for users to navigate and interact with the application.
+- **Responsive Design**: The application is responsive and works well across various devices and screen sizes, ensuring a consistent experience for all users.
+- **Job Listing**: Users can browse through a list of available job listings, view details of each job, and apply for positions of interest.
+- **Application Management**: Users can manage their job applications, view application status, and track progress throughout the hiring process.
+- **Profile Management**: Users have the ability to update their profiles, including personal information, contact details, and professional experience.
+- **Integration with Backend**: The frontend seamlessly integrates with the ATS Backend, enabling smooth communication and data exchange between the frontend and backend systems.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React**: A JavaScript library for building user interfaces.
+- **Tailwind CSS**: A utility-first CSS framework for quickly styling web applications.
 
-### `npm run build`
+## Deployment
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The ATS Frontend is deployed and accessible via the following link: [ATS Frontend Deployed Link](https://aplication-tracking-system-ats-frontend.onrender.com/).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Support
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+If you encounter any issues while using the ATS Frontend or have any feedback to share, please don't hesitate to reach out to us. You can contact us via [email](fasilhawultie19@gmial.com) or by opening an issue in the repository.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for using the Application Tracking System (ATS) Frontend! We hope it enhances your job application experience and helps you manage your applications effectively.
